@@ -1,0 +1,1 @@
+web: java -jar target/Meshkovo-1.0.jar

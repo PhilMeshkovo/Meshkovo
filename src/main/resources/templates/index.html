@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Meshkovo</title>
-    <style>
-        body {
+  <meta charset="UTF-8">
+  <title>Meshkovo</title>
+  <style>
+         html { height: 100%; }
+         body {
+            margin: 0;
+            height: 100%;
             background: url("img/pond.jpg");
-            background-size: 2000px 700px;
-            mix-blend-mode: luminosity;
+            background-size: cover;
         }
 
         h1 {
@@ -43,12 +45,19 @@
         .button-1:hover:before {
             transform: translate(4px, 4px);
         }
-    </style>
+
+  </style>
 </head>
 <body>
 <h1>НАШЕ МЕШКОВО</h1>
-<button id="1-button" class="button-1" onclick="window.location.href='sights.html'">Наши достопримечательности</button>
-<button id="2-button" class="button-1" onclick="window.location.href='history.html'">История Мешково</button>
-<button id="3-button" class="button-1" onclick="window.location.href='board.html'">Доска обьявлений</button>
+<button id="1-button" class="button-1" onclick="window.location.href='sights.html'">Наши
+  достопримечательности
+</button>
+<button id="2-button" class="button-1" onclick="window.location.href='history.html'">История
+  Мешково
+</button>
+<button id="3-button" class="button-1" onclick="window.location.href='board.html'">Доска
+  обьявлений
+</button>
 </body>
 </html>

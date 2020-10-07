@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Доска обьявлений</title>
+    <!-- версия для разработки, отображает полезные предупреждения в консоли -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <style>
+        #rebase-button {
+            background-color: skyblue;
+            height: 60px;
+            width: 70px;
+            bottom: 30px;
+            right: 30px;
+            cursor: pointer;
+            position: fixed;
+            z-index: 999;
+        }
+
+        #new-message-button {
+            background-color: skyblue;
+            height: 60px;
+            width: 90px;
+            bottom: 30px;
+            right: 120px;
+            cursor: pointer;
+            position: fixed;
+            z-index: 999;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            background-color: darkslategrey;
+            color: white;
+        }
+        .button4 {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            border-radius: 12px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>ОБЬЯВЛЕНИЯ</h1>
+<div id="app"></div>
+<script src="/js/main.js"></script>
+<button class="button4" onclick="window.location.href='login.html'">Модерация</button>
+<button id="rebase-button" class="button-1" onclick="window.location.href='index.html'">На главную страницу</button>
+<button id="new-message-button" class="button-1" onclick="showDiv()">Написать новое обьявление</button>
+
+
+</body>
+</html>

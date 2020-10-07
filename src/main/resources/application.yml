@@ -1,0 +1,16 @@
+spring.datasource.url: jdbc:mysql://localhost:3306/Meshkovo?serverTimezone=UTC
+spring.datasource.username: root
+spring.datasource.password: testtest
+spring.jpa.hibernate.ddl-auto: update
+spring.jpa.show-sql: true
+server.port: 8080
+spring.thymeleaf.suffix: .html
+
+#logging.level.org.springframework.web: DEBUG
+
+spring.mail.host: smtp.yandex.ru
+spring.mail.username: ivanivanov1977.ivashka@yandex.ru
+spring.mail.password: '03081977'
+spring.mail.port: 465
+spring.mail.protocol: smtps
+mail.debug: true

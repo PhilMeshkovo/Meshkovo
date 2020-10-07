@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <style>
+        body {
+            background-color: darkcyan;
+        }
+        form {
+            border: 3px solid #f1f1f1;
+            width: 70%;
+            text-align: center;
+            padding: 50px;
+            background: #ccc;
+            position: fixed; top: 50%; left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        /* Full-width inputs */
+        input[type=text], input[type=password] {
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+      
+        #login-button {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 30%;
+        }
+        .container {
+            padding: 16px;
+            background-color: darkslategrey;
+            text-align: center;
+        }
+        #rebase-button {
+            background-color: skyblue;
+            height: 60px;
+            width: 70px;
+            bottom: 30px;
+            right: 30px;
+            cursor: pointer;
+            position: fixed;
+            z-index: 999;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/js/login.js"></script>
+</head>
+<body>
+<form id="login-form" action="#" th:action="@{http://localhost:8080/login}" th:object="${login}"  method="post">
+
+    <div class="container">
+        <input id="username" type="text" placeholder="Enter Username" name="username" required><br>
+        <input id="password" type="password" placeholder="Enter Password" name="password" required><br>
+
+        <button id="login-button"  type="submit">Login</button><br>
+    </div>
+</form>
+<button id="rebase-button" class="button-1" onclick="window.location.href='index.html'">На главную страницу</button>
+</body>
+</html>

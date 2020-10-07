@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Модерация</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+        body {
+            background-color: darkslategrey;
+            color: white;
+        }
+        #rebase-button {
+            background-color: skyblue;
+            height: 60px;
+            width: 70px;
+            bottom: 30px;
+            right: 30px;
+            cursor: pointer;
+            position: fixed;
+            z-index: 999;
+        }
+        #last-page-button {
+            background-color: skyblue;
+            height: 60px;
+            width: 100px;
+            bottom: 30px;
+            right: 120px;
+            cursor: pointer;
+            position: fixed;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+<h1>ОБЬЯВЛЕНИЯ ДЛЯ МОДЕРАЦИИ</h1>
+<div id="mod"></div>
+<script src="/js/moderation.js"></script>
+
+<button id="last-page-button" class="button-1" onclick="window.location.href='board.html'">На предыдущую страницу</button>
+<button id="rebase-button" class="button-1" onclick="window.location.href='index.html'">На главную страницу</button>
+</body>
+</html>

@@ -43,12 +43,12 @@ public class PostService {
             post.setIp(remoteAddress);
             post.setTime(LocalDateTime.now().plusHours(3L));
             postRepo.save(post);
-//      mailSender.send("gmeshkovo1977@gmail.com", "new message",
-//              "text - '" + request.getText() + "' from - '" + request.getName() +
-//                      "' , phone number - '" + request.getPhone() + "'");
-//    mailSender.send("deniscamaro76@gmail.com", "new message",
-//        "text - '" + request.getText() + "' from - '" + request.getName() +
-//            "' , phone number - '" + request.getPhone() + "'");
+      mailSender.send("gmeshkovo1977@gmail.com", "new message",
+              "text - '" + request.getText() + "' from - '" + request.getName() +
+                      "' , phone number - '" + request.getPhone() + "'");
+    mailSender.send("deniscamaro76@gmail.com", "new message",
+        "text - '" + request.getText() + "' from - '" + request.getName() +
+            "' , phone number - '" + request.getPhone() + "'");
         } else {
             throw new Exception("form of message is not correct");
         }

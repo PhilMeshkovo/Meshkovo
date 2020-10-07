@@ -62,7 +62,7 @@
     <script src="/js/login.js"></script>
 </head>
 <body>
-<form id="login-form" action="#" th:action="@{http://localhost:8080/login}" th:object="${login}"  method="post">
+<form id="login-form" action="#" th:action="@{/login}" th:object="${login}"  method="post">
 
     <div class="container">
         <input id="username" type="text" placeholder="Enter Username" name="username" required><br>

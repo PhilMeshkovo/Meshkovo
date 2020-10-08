@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Доска обьявлений</title>
@@ -37,6 +37,15 @@
             background-color: darkslategrey;
             color: white;
         }
+
+        input {
+            text-align: center;
+            background-color: #232323;
+            color: white;
+            width: 150px;
+            height: 50px;
+        }
+
         .button4 {
             background-color: #4CAF50;
             border: none;
@@ -52,12 +61,29 @@
             top: 10px;
             right: 10px;
         }
+
+        #save-button {
+            text-align: center;
+            background-color: #232323;
+            color: white;
+            width: 150px;
+            float: outside;
+        }
     </style>
 </head>
 <body>
 <h1>ОБЬЯВЛЕНИЯ</h1>
 <div id="app"></div>
 <script src="/js/main.js"></script>
+<form id="save-form" action="#" th:action="@{/message}" th:object="${message}" method="post">
+    <div class="container" id="save-div"
+         style="position: absolute; right: 10px; text-align: center; width: 500px; display: none ">
+        <input type="text" placeholder="Write your text" name="text" required/>
+        <input type="text" placeholder="Write your name" name="name" required/>
+        <input type="text" placeholder="Write your phone" name="phone" required/>
+        <button type="submit" id="save-button">Save</button>
+    </div>
+</form>
 <button class="button4" onclick="window.location.href='login.html'">Модерация</button>
 <button id="rebase-button" class="button-1" onclick="window.location.href='index.html'">На главную страницу</button>
 <button id="new-message-button" class="button-1" onclick="showDiv()">Написать новое обьявление</button>

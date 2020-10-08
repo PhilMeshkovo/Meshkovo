@@ -1,5 +1,7 @@
 package main.service;
 
+import java.util.ArrayList;
+import java.util.Optional;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import main.config.SecurityConfiguration;
@@ -11,37 +13,34 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Optional;
-
 @Service
 @Slf4j
 public class UserService implements UserDetailsService {
 
-    @Autowired
-    UserRepo userRepo;
+  @Autowired
+  UserRepo userRepo;
 
 
-    @Autowired
-    SecurityConfiguration securityConfiguration;
+  @Autowired
+  SecurityConfiguration securityConfiguration;
 
-    @Override
-    public UserDetails loadUserByUsername(@NonNull String username)
-            throws UsernameNotFoundException {
-        User user = userRepo.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("user " + username + " not found!"));
-        return new org.springframework.security.core.userdetails.User(user.getEmail(),
-                user.getPassword()
-                , new ArrayList<>());
+  @Override
+  public UserDetails loadUserByUsername(@NonNull String username)
+      throws UsernameNotFoundException {
+    User user = userRepo.findByEmail(username)
+        .orElseThrow(() -> new UsernameNotFoundException("user " + username + " not found!"));
+    return new org.springframework.security.core.userdetails.User(user.getEmail(),
+        user.getPassword()
+        , new ArrayList<>());
+  }
+
+  public boolean login(String username, String password) {
+    boolean answer = false;
+    Optional<User> userByUsername = userRepo.findByEmail(username);
+    if (userByUsername.isPresent() && securityConfiguration.bcryptPasswordEncoder()
+        .matches(password, userByUsername.get().getPassword())) {
+      answer = true;
     }
-
-    public boolean login(String username, String password) {
-        boolean answer = false;
-        Optional<User> userByUsername = userRepo.findByEmail(username);
-        if (userByUsername.isPresent() && securityConfiguration.bcryptPasswordEncoder()
-                .matches(password, userByUsername.get().getPassword())) {
-            answer = true;
-        }
-        return answer;
-    }
+    return answer;
+  }
 }

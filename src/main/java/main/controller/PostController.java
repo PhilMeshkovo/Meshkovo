@@ -1,7 +1,6 @@
 package main.controller;
 
 import javassist.NotFoundException;
-import main.request.MessageRequest;
 import main.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +13,6 @@ import java.util.Map;
 @Controller
 @RequestMapping
 public class PostController {
-
-    private int counter = 4;
 
     @Autowired
     HttpServletRequest httpServletRequest;
@@ -36,9 +33,11 @@ public class PostController {
     }
 
     @PostMapping("/message")
-    public @ResponseBody
-    void create(@RequestBody MessageRequest request) throws Exception {
-        postService.add(request, httpServletRequest.getRemoteAddr());
+    public String create(@RequestParam String text,
+                         @RequestParam String name,
+                         @RequestParam String phone) throws Exception {
+        postService.add(text, name, phone, httpServletRequest.getRemoteAddr());
+        return "board";
     }
 
     @PutMapping("/moderation/{id}")

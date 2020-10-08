@@ -1,4 +1,4 @@
-spring.datasource.url: jdbc:${CLEARDB_BROWN_URL:mysql://localhost:3306/Meshkovo?serverTimezone=UTC}
+spring.datasource.url: jdbc:${CLEARDB_DATABASE_URL:mysql://localhost:3306/Meshkovo?serverTimezone=UTC}
 spring.datasource.username: root
 spring.datasource.password: testtest
 spring.jpa.hibernate.ddl-auto: update

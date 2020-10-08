@@ -67,70 +67,12 @@ var app = new Vue({
     }
 });
 
-Vue.component('message-form', {
-    props: ['messages', 'messageAttr'],
-    data: function () {
-        return {
-            phone: '',
-            name: '',
-            text: '',
-            id: ''
-        }
-    },
-    watch: {
-        messageAttr: function (newVal, oldVal) {
-            this.phone = newVal.phone;
-            this.name = newVal.name;
-            this.text = newVal.text;
-            this.id = newVal.id;
-        }
-    },
-    template:
-        '<div id="save-form" style="position: absolute; right: 10px; text-align: center; width: 500px; display: none ">' +
-        '<input type="text" style="text-align: center; background-color: #232323; color: white; width: 150px; height: 50px" placeholder="Write your text" v-model="text" />' +
-        '<input type="text" style="text-align: center; background-color: #232323; color: white; width: 150px; height: 50px" placeholder="Write your name" v-model="name" />' +
-        '<input type="text" style="text-align: center; background-color: #232323; color: white; width: 150px; height: 50px" placeholder="Write your phone" v-model="phone" />' +
-        '<input type="button" onclick="window.location.reload()" style="text-align: center; background-color: #232323; color: white; width: 150px; float: outside" value="Save" @click="save" />' +
-        '</div>',
-    methods: {
-        save: function () {
-            var message = {
-                text: this.text,
-                name: this.name,
-                phone: this.phone
-            };
-
-            if (this.id) {
-                messageApi.update({id: this.id}, message).then(result =>
-                    result.json().then(data => {
-                        var index = getIndex(this.messages, data.id);
-                        this.messages.splice(index, 1, data);
-                        this.phone = ''
-                        this.name = ''
-                        this.text = ''
-                        this.id = ''
-                    })
-                )
-            } else {
-                messageApi.save({}, message).then(result =>
-                    result.json().then(data => {
-                        this.messages.push(data);
-                        this.phone = ''
-                        this.name = ''
-                        this.text = ''
-                    })
-                )
-            }
-        }
-    }
-});
-
 function showDiv() {
-    var display = document.getElementById("save-form").style.display;
+    var display = document.getElementById("save-div").style.display;
     if (display == 'none') {
-        document.getElementById("save-form").style.display = 'block';
+        document.getElementById("save-div").style.display = 'block';
     } else {
-        document.getElementById("save-form").style.display = 'none';
+        document.getElementById("save-div").style.display = 'none';
     }
 }
 

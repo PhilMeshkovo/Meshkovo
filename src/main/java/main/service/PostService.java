@@ -3,7 +3,6 @@ package main.service;
 import javassist.NotFoundException;
 import main.model.Post;
 import main.repository.PostRepo;
-import main.request.MessageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,23 +31,23 @@ public class PostService {
         return messageList;
     }
 
-    public void add(MessageRequest request, String remoteAddress) throws Exception {
-        if (!request.getText().equals("") && !request.getName().equals("")
-                && !request.getPhone().equals("")) {
+    public void add(String text, String name, String phone, String remoteAddress) throws Exception {
+        if (!text.equals("") && !name.equals("")
+                && !name.equals("")) {
             Post post = new Post();
             post.setStatus("NEW");
-            post.setText(request.getText());
-            post.setName(request.getName());
-            post.setPhone(request.getPhone());
+            post.setText(text);
+            post.setName(name);
+            post.setPhone(phone);
             post.setIp(remoteAddress);
             post.setTime(LocalDateTime.now().plusHours(3L));
             postRepo.save(post);
-      mailSender.send("gmeshkovo1977@gmail.com", "new message",
-              "text - '" + request.getText() + "' from - '" + request.getName() +
-                      "' , phone number - '" + request.getPhone() + "'");
-    mailSender.send("deniscamaro76@gmail.com", "new message",
-        "text - '" + request.getText() + "' from - '" + request.getName() +
-            "' , phone number - '" + request.getPhone() + "'");
+            mailSender.send("gmeshkovo1977@gmail.com", "new message",
+                    "text - '" + text + "' from - '" + name +
+                            "' , phone number - '" + phone + "'");
+            mailSender.send("deniscamaro76@gmail.com", "new message",
+                    "text - '" + text + "' from - '" + name +
+                            "' , phone number - '" + phone + "'");
         } else {
             throw new Exception("form of message is not correct");
         }

@@ -57,9 +57,9 @@ Vue.component('message-form', {
 
 Vue.component('message-row', {
     props: ['message', 'editMethod', 'messages'],
-    template: '<li style="list-style-position: inside">' +
+    template: '<li style="list-style-position: inside; width: 50%">' +
         '{{ message.text }}. <strong>{{ message.name }}. {{ message.phone }}. {{ message.status}}</strong>' +
-        '<span style="position: absolute; right: 100px">' +
+        '<span style="position: absolute; right: 5%">' +
         '<input type="button" value="Edit" @click="edit" />' +
         '</span>' +
         '</li>',

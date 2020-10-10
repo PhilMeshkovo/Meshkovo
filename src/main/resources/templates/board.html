@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
     <style>
+        html { height: 100%; }
         #rebase-button {
             background-color: skyblue;
             height: 60px;
@@ -82,7 +83,7 @@
 <script src="/js/main.js"></script>
 <form id="save-form" action="#" th:action="@{/message}" th:object="${message}" method="post">
     <div class="container" id="save-div"
-         style="position: absolute; right: 10px; text-align: center; width: 500px; display: none ">
+         style="position: absolute; right: 10%; text-align: center; width: 80%; display: none ">
         <input type="text" placeholder="Write your text" name="text" required/>
         <input type="text" placeholder="Write your name" name="name" required/>
         <input type="text" placeholder="Write your phone" name="phone" required/>

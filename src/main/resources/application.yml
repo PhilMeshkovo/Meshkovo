@@ -8,9 +8,10 @@ spring.thymeleaf.suffix: .html
 
 #logging.level.org.springframework.web: DEBUG
 
-spring.mail.host: smtp.yandex.ru
-spring.mail.username: ivanivanov1977.ivashka@yandex.ru
-spring.mail.password: '03081977'
-spring.mail.port: 465
-spring.mail.protocol: smtps
+spring.mail.host: smtp.gmail.com
+spring.mail.username: gmeshkovoapp1977@gmail.com
+spring.mail.password: 'phil03081977'
+spring.mail.port: 587
+spring.mail.protocol: smtp
+
 mail.debug: true
